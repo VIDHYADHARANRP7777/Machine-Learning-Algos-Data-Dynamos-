@@ -1,0 +1,6 @@
+Algorithm,Accuracy,Precision_weighted,Recall_weighted,F1_weighted,ROC_AUC_OvR
+Logistic Regression,0.9078,0.9088,0.9078,0.9071,0.9921
+K-Nearest Neighbors,0.9243,0.923,0.9243,0.9229,0.9864
+Naive Bayes (Gaussian),0.7447,0.7849,0.7447,0.7351,0.9497
+Decision Tree,0.9811,0.9814,0.9811,0.981,0.9955
+Support Vector Machine (SVC),0.9764,0.9773,0.9764,0.9765,0.9989
