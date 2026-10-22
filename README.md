@@ -1,9 +1,9 @@
 # ML Capstone Lab — Clustering, Classification & Regression
 ### 23CSE301 | Academic Year 2026–27
 
-An interactive machine learning capstone project featuring **Regression, Classification, and Clustering** through a Streamlit web application and executed Jupyter notebooks.
+An interactive machine learning capstone project featuring **Regression, Classification, and Clustering** through a Streamlit web application and Jupyter notebooks.
 
-The application allows users to explore machine learning algorithms, compare model performance, adjust parameters, and visualize results. Numerical results are generated using actual scikit-learn and SciPy execution based on the selected settings. Ground-truth labels are not used to fit clustering models.
+The application allows users to explore machine learning algorithms, compare model performance, adjust parameters, and visualize results. Numerical results are generated using scikit-learn and SciPy based on the selected settings. Ground-truth labels are not used to fit clustering models.
 
 ## 🚀 Live Demo
 
@@ -28,6 +28,9 @@ The interactive application includes three machine learning tracks:
 
 **Dataset availability:** The obesity and World Happiness datasets are bundled with the project. The box-office dataset is not bundled and must be provided separately for regression.
 
+## 📂 Repository Structure
+
+```text
 Machine-Learning-Algos-Data-Dynamos-/
 │
 ├── Classification/
@@ -71,15 +74,19 @@ Machine-Learning-Algos-Data-Dynamos-/
 ├── README.md
 ├── UPDATE_INSTRUCTIONS.md
 └── requirements.txt
+```
 
-### Directory Description
+*Note: The tree reflects the repository's top-level structure shown in GitHub. Verify the internal filenames against your actual repository before submission.*
 
-- **`app/`** — Streamlit application, supervised-learning pages, model pipelines, and clustering utilities.
-- **`notebooks/`** — Executed Jupyter notebooks for K-Means and Agglomerative Clustering, with outputs visible.
-- **`data/`** — Datasets used by the classification and clustering tracks.
-- **`tests/`** — Tests for clustering, regression, and classification interfaces.
-- **`tools/`** — Utility scripts for regenerating the clustering notebooks.
-- **`RUBRIC_CHECKLIST.md`** — Checklist for verifying project requirements.
+## 📁 Directory Description
+
+- **`Classification/`** — Classification notebooks organized under `Classification_PartA/`.
+- **`Clustering/`** — Notebooks for K-Means and Agglomerative Clustering.
+- **`Regression/`** — Notebooks for the regression algorithms.
+- **`UI/`** — Streamlit application and supporting supervised-learning modules.
+- **`requirements.txt`** — Python dependencies required to run the project.
+- **`UPDATE_INSTRUCTIONS.md`** — Instructions related to updating the application.
+- **`LICENSE`** — Project licensing information.
 
 ## 🛠️ Installation and Setup
 
@@ -118,7 +125,7 @@ pip install -r requirements.txt
 From the repository root, execute:
 
 ```bash
-streamlit run app/app.py
+streamlit run UI/app.py
 ```
 
 Streamlit will display a local URL in the terminal, usually:
@@ -127,11 +134,13 @@ Streamlit will display a local URL in the terminal, usually:
 http://localhost:8501
 ```
 
-Open that URL in your browser to use the application locally.
+Open the URL in your browser to use the application locally.
 
-Alternatively, access the deployed application directly:
+Alternatively, access the deployed application:
 
 **[https://datadynamos.streamlit.app/](https://datadynamos.streamlit.app/)**
+
+> **Important:** The command above assumes that `app.py` is located inside `UI/`, as shown in the repository structure. If the entry-point file has a different name or location, update the command accordingly.
 
 ## 📊 Track 1 — Regression
 
@@ -154,24 +163,24 @@ The regression track predicts worldwide box-office revenue using movie-related f
 
 `enhanced_box_office_data_2000-2024.csv`
 
-This dataset must be supplied separately because it is not bundled with the project.
+The dataset is not bundled with the project and must be supplied separately.
 
 ### Configure the Dataset
 
-Choose one of the following options:
+Choose one of the following options, depending on what the application supports:
 
-- Place the CSV file inside the `data/` directory.
-- Upload the CSV using the sidebar on the Regression page.
-- Set the `BOX_OFFICE_CSV` environment variable to the file path.
+- Place the CSV file in the expected data directory.
+- Upload the CSV through the Regression page, if upload functionality is available.
+- Set the `BOX_OFFICE_CSV` environment variable if supported by the application.
 
 **Windows CMD example:**
 
 ```bash
 set BOX_OFFICE_CSV=D:\path\to\enhanced_box_office_data_2000-2024.csv
-streamlit run app/app.py
+streamlit run UI/app.py
 ```
 
-Replace the example path with the actual location of your dataset.
+Replace the example path with the actual location of the dataset.
 
 ### Modelling Approach
 
@@ -183,17 +192,17 @@ Replace the example path with the actual location of your dataset.
 - Categorical features are encoded within pipelines.
 - Preprocessing is fitted on training data only, including within cross-validation folds.
 
-Evaluation includes regression metrics such as R², RMSE, and MAE, with revenue errors reported in USD. R² on the log-transformed target is also reported where applicable.
+Evaluation includes R², RMSE, and MAE. Revenue errors are reported in USD, and R² on the log-transformed target is reported where applicable.
 
 ## 🧠 Track 2 — Classification
 
-The classification track predicts obesity-related categories from demographic, lifestyle, and health-related features in the provided dataset.
+The classification track predicts obesity-related categories using features from the obesity dataset.
 
 ### Dataset
 
 `ObesityDataSet_raw_and_data_sinthetic.csv`
 
-This dataset is bundled with the project.
+This dataset is described as bundled with the project.
 
 ### Part A Algorithms
 
@@ -211,9 +220,9 @@ This dataset is bundled with the project.
 9. Bagging Classifier
 10. Multi-Layer Perceptron (MLP)
 
-### Evaluation
+### Evaluation Metrics
 
-Classification models can be compared using appropriate metrics, including:
+Classification models can be compared using:
 
 - Accuracy
 - Precision
@@ -222,7 +231,7 @@ Classification models can be compared using appropriate metrics, including:
 - Confusion matrix
 - Cross-validation scores, where implemented
 
-The application reproduces the notebook's classification preprocessing and saved Part A results.
+The confusion matrix compares actual class labels with predicted class labels. Precision, recall, and F1-score provide additional insight into performance for individual categories.
 
 ## 🔍 Track 3 — Clustering
 
@@ -231,11 +240,13 @@ The clustering track explores patterns in country-level World Happiness Report i
 ### Algorithms
 
 **K-Means Clustering**
+
 - Partitions observations into K clusters.
 - Uses cluster evaluation metrics to help assess the choice of K.
 - Supports cluster profiles and visualizations.
 
 **Agglomerative Hierarchical Clustering**
+
 - Ward linkage
 - Complete linkage
 - Average linkage
@@ -245,7 +256,6 @@ The clustering track explores patterns in country-level World Happiness Report i
 
 The clustering track includes:
 
-- Cluster evaluation metrics.
 - Elbow curve analysis.
 - Silhouette-based evaluation.
 - Cluster-size comparisons.
@@ -253,43 +263,26 @@ The clustering track includes:
 - PCA-based visualization.
 - t-SNE-based visualization.
 - Hierarchical clustering and dendrogram analysis.
+- Cluster evaluation metrics.
 
 The World Happiness panel is aggregated to one row per country before clustering. `Regional Indicator` is used only for post-hoc Adjusted Rand Index (ARI) validation and is not used to fit the clustering models.
 
-## 📓 Run the Clustering Notebooks
+### Run the Clustering Notebooks
 
-The repository includes two executed notebooks with visible outputs:
+The repository includes the following notebooks:
 
 - `11_KMeans_Clustering.ipynb`
 - `12_Agglomerative_Clustering.ipynb`
 
-To execute them from the repository root:
+Open them in Jupyter Notebook or JupyterLab to execute the cells and inspect the outputs.
+
+If both notebooks are located in `Clustering/`, you can execute them from the repository root with:
 
 ```bash
-jupyter nbconvert --to notebook --execute --inplace notebooks/11_KMeans_Clustering.ipynb notebooks/12_Agglomerative_Clustering.ipynb
+jupyter nbconvert --to notebook --execute --inplace Clustering/11_KMeans_Clustering.ipynb Clustering/12_Agglomerative_Clustering.ipynb
 ```
 
-To regenerate the notebooks using the provided build script:
-
-```bash
-python tools/build_notebooks.py
-```
-
-## 🧪 Run the Tests
-
-Run the clustering interface tests:
-
-```bash
-python tests/test_app.py
-```
-
-Run the regression and classification interface tests:
-
-```bash
-python tests/test_supervised_ui.py
-```
-
-The project includes checks for clustering UI behavior and supervised-learning interfaces. The synthetic box-office fixture is intended for testing only; it is not a replacement for the actual box-office dataset.
+Ensure that Jupyter and the project's dependencies are installed before running the command.
 
 ## ⚙️ Important Modelling Notes
 
@@ -301,49 +294,60 @@ The project includes checks for clustering UI behavior and supervised-learning i
 - Imputation, scaling, and encoding are handled through pipelines.
 - Cross-validation preprocessing is fitted within the relevant training folds.
 
-**Known notebook issue:** Running `01_linear_regression.ipynb` from a clean kernel raises `NameError: name 'ordinal_features' is not defined`.
+**Known notebook issue:** Running `01_linear_regression.ipynb` from a clean kernel previously raised `NameError: name 'ordinal_features' is not defined`.
 
-To fix the feature-set cell, define:
+The feature-set cell should define:
 
 ```python
 categorical_features = ['Primary_Genre', 'Language_Grouped']
 ordinal_features = ['Decade']
 ```
 
-The notebook should then be executed from top to bottom to verify that all outputs are generated correctly.
-
-The saved outputs may reflect a previous kernel state, so they should not be treated as proof that a notebook executes successfully from a clean kernel.
+Execute the notebook from top to bottom after fixing the issue to verify that all outputs are generated correctly. Saved outputs from an earlier kernel state do not guarantee that a notebook runs successfully from a clean kernel.
 
 ### Classification
 
-- Notebook preprocessing is reproduced in the application.
-- Train and test preprocessing matrices were verified to match the saved notebook workflow.
-- The dataset's target labels are used for supervised model training and evaluation.
+- The application is intended to reproduce the notebook preprocessing.
+- Classification models use labelled data for training and evaluation.
+- Model performance should be compared using appropriate classification metrics.
 
 ### Clustering
 
-- Clustering models are fitted without using ground-truth class labels.
+- Clustering models are fitted without ground-truth class labels.
 - Country-level observations are created by aggregating the happiness panel.
 - Regional indicators are used only for post-hoc ARI validation.
 - PCA and t-SNE support visualization and do not independently assign the original K-Means cluster labels.
+
+## 🧪 Testing
+
+Run the notebooks and test scripts that are present in your repository.
+
+For example, if your project contains dedicated test scripts:
+
+```bash
+python tests/test_app.py
+python tests/test_supervised_ui.py
+```
+
+**Note:** These commands require the corresponding files to exist. The repository screenshot does not show a `tests/` directory, so add or adjust these commands only if those test files are available in your actual project.
 
 ## 🌐 Deployment
 
 The application is deployed using Streamlit Community Cloud.
 
-**Live application:** [https://datadynamos.streamlit.app/](https://datadynamos.streamlit.app/)
+**Live application:** [Data Dynamos — ML Capstone Lab](https://datadynamos.streamlit.app/)
 
-To deploy your own version:
+To deploy another version:
 
-1. Push the project repository to GitHub.
+1. Push the project to GitHub.
 2. Open [Streamlit Community Cloud](https://share.streamlit.io/).
-3. Connect your GitHub account if needed.
+3. Connect your GitHub account if necessary.
 4. Select the repository.
-5. Set the main application file to `app/app.py`.
-6. Configure any required datasets and environment variables.
+5. Choose the Streamlit entry-point file.
+6. Configure required datasets and environment variables.
 7. Deploy the application.
 
-**Deployment note:** The regression page requires the actual box-office CSV. Ensure that the dataset is available to the deployed application through an appropriate file or upload mechanism. Do not commit sensitive information or credentials to GitHub.
+The regression page requires the actual box-office CSV. Ensure that the deployed application can access this dataset through the supported upload or configuration method. Do not commit passwords, API keys, or other secrets to GitHub.
 
 ## 🤖 AI Assistance Disclosure
 
@@ -358,7 +362,7 @@ The analysis and interpretation of results must be completed by the project auth
 - Evaluate model performance using suitable metrics.
 - Visualize model results and data patterns.
 - Build an interactive Streamlit application.
-- Provide reproducible notebooks and tests.
+- Provide reproducible notebooks and testing workflows.
 - Demonstrate understanding of model behavior, limitations, and evaluation.
 
 ---
