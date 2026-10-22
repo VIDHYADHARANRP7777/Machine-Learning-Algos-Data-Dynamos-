@@ -42,8 +42,16 @@ python tests/test_app.py             # clustering UI (14 checks)
 python tests/test_supervised_ui.py   # regression + classification UI (41 checks)
 ```
 
-## Public deployment (bonus +1)
-Not deployed by this build. To deploy: push this repo to GitHub, open https://share.streamlit.io, choose the repo, set the main file to `app/app.py`. Make sure the box-office CSV is committed to `data/` if you want the Regression page live.
+## Public Deployment (bonus +1)
+
+**Live Streamlit App:** https://datadynamos.streamlit.app/
+
+The ML Capstone Lab application is deployed and publicly accessible through Streamlit Community Cloud.
+
+To access the interactive UI, visit: https://datadynamos.streamlit.app/
+
+The app provides interactive interfaces for Regression, Classification, and Clustering algorithms, allowing users to explore model outputs using their selected settings.
+
 
 ## Modelling notes
 - **Regression** follows your notebooks: leakage columns dropped, `log1p` target, metrics reported in USD (plus R² on the log scale), 80:20 random split with `random_state=42`, imputation/scaling/encoding inside the pipeline (fitted on training data only, also inside CV folds). One deliberate difference: the notebooks median-impute `Rating`/`Vote_Count` on the whole table before splitting; the app lets the pipeline do it on training data only (stricter, avoids leakage).
