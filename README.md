@@ -28,37 +28,49 @@ The interactive application includes three machine learning tracks:
 
 **Dataset availability:** The obesity and World Happiness datasets are bundled with the project. The box-office dataset is not bundled and must be provided separately for regression.
 
-## 📂 Repository Structure
-
-```text
 Machine-Learning-Algos-Data-Dynamos-/
 │
-├── app/
+├── Classification/
+│   └── Classification_PartA/
+│       └── notebooks/
+│           ├── 01_logistic_regression.ipynb
+│           ├── 02_knn.ipynb
+│           ├── 03_naive_bayes.ipynb
+│           ├── 04_decision_tree.ipynb
+│           ├── 05_svc.ipynb
+│           ├── 07_random_forest.ipynb
+│           ├── 08_adaboost.ipynb
+│           ├── 09_gradient_boosting.ipynb
+│           ├── 10_bagging.ipynb
+│           ├── 11_mlp.ipynb
+│           └── 12_final_comparison.ipynb
+│
+├── Clustering/
+│   ├── 11_KMeans_Clustering.ipynb
+│   └── 12_Agglomerative_Clustering.ipynb
+│
+├── Regression/
+│   ├── 01_linear_regression.ipynb
+│   ├── 02_ridge_regression.ipynb
+│   ├── 03_lasso_regression.ipynb
+│   ├── 04_elasticnet_regression.ipynb
+│   ├── 05_polynomial_regression.ipynb
+│   ├── 06_decision_tree_regression.ipynb
+│   ├── 07_random_forest_regression.ipynb
+│   ├── 08_gradient_boosting_regression.ipynb
+│   ├── 09_svr.ipynb
+│   └── 10_knn_regression.ipynb
+│
+├── UI/
 │   ├── app.py
 │   ├── supervised_pages.py
 │   ├── supervised.py
 │   └── utils.py
 │
-├── notebooks/
-│   ├── 11_KMeans_Clustering.ipynb
-│   └── 12_Agglomerative_Clustering.ipynb
-│
-├── data/
-│   ├── world_happiness_report.csv
-│   └── ObesityDataSet_raw_and_data_sinthetic.csv
-│
-├── tests/
-│   ├── test_app.py
-│   ├── test_supervised_ui.py
-│   └── make_box_office_fixture.py
-│
-├── tools/
-│   └── build_notebooks.py
-│
-├── requirements.txt
-├── RUBRIC_CHECKLIST.md
-└── README.md
-```
+├── LICENSE
+├── README.md
+├── UPDATE_INSTRUCTIONS.md
+└── requirements.txt
 
 ### Directory Description
 
