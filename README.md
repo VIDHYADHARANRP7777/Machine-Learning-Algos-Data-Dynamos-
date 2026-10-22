@@ -42,7 +42,7 @@ python tests/test_app.py             # clustering UI (14 checks)
 python tests/test_supervised_ui.py   # regression + classification UI (41 checks)
 ```
 
-## Public Deployment (bonus +1)
+## Public Deployment
 
 **Live Streamlit App:** https://datadynamos.streamlit.app/
 
