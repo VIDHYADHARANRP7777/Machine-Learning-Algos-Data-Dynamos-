@@ -349,11 +349,6 @@ To deploy another version:
 
 The regression page requires the actual box-office CSV. Ensure that the deployed application can access this dataset through the supported upload or configuration method. Do not commit passwords, API keys, or other secrets to GitHub.
 
-## 🤖 AI Assistance Disclosure
-
-Code scaffolding for the notebooks, application, and tests was generated with Claude (Anthropic).
-
-The analysis and interpretation of results must be completed by the project authors in accordance with the course guidelines. All team members should review the implementation, understand the algorithms and preprocessing steps, independently interpret the outputs, and be prepared to explain the project during the viva.
 
 ## 🎯 Project Objectives
 
